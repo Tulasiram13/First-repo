@@ -1,0 +1,8 @@
+- name: First
+  hosts: target
+  tasks: 
+   - name: Ping to my list of hosts
+     ansible.builtin.ping:
+   - name: send message
+     ansible.builtin.debug:
+      msg: Hello World

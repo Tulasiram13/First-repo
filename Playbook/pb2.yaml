@@ -1,0 +1,21 @@
+- name: Playbook
+  hosts: target
+  vars:
+   msg_var: Hello World
+  tasks:
+   - name: Ping my hosts
+     ansible.builtin.ping:
+   - name: Print messgae
+     ansible.builtin.debug:
+      var: msg_var
+  tags: print_message_pong
+- name: install module
+  hosts: all
+  become: true
+  become_user: ubuntu2
+  tasks:
+   - name: install apache
+     ansible.builtin.apt:
+      name: apache2
+      state: absent
+  tags: apache_install
